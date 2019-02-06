@@ -45,14 +45,15 @@ function draw() {
 
 	points.push(createVector(x, y, z));
 
+	stroke(255);
 	strokeWeight(3);
+	noFill();
+	beginShape();
 	for (let i = 0; i < points.length - 1; i++) {
-		const current = points[i];
-		const next = points[i + 1];
-
-		stroke((i * 0.1) % 100, 100, 100);
-		line(current.x, current.y, current.z, next.x, next.y, next.z);
+		const point = points[i];
+		vertex(point.x, point.y, point.z);
 	}
+	endShape();
 }
 
 window.addEventListener('resize', () => {
